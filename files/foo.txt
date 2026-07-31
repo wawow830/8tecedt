@@ -1,1 +1,6 @@
-hello from foo.txt
+apples
+bananas
+cucumbers
+69
+True
+2.71828
