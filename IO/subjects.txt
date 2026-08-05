@@ -1,0 +1,7 @@
+Subjects:
+English
+Math
+Science
+History
+Geography
+TAS
