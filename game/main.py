@@ -15,11 +15,12 @@ shop = {
 }
 
 def buy(item):
-    if item in shop:
+    global bits, bpt
+    if str(item) in shop:
         if bits >= shop[item]["cost"]:
             bits -= shop[item]["cost"]
             items.append(shop[item])
-            bps += shop[item]["bpt"]
+            bpt += shop[item]["bpt"]
 
 def select(x):
     global selected
@@ -40,15 +41,17 @@ while True:
     if inp == "buy":
         for i, j in enumerate(shop):
             if i == selected:
-                buy(shop[j])
+                buy(j)
+
+    bits  += bpt
 
     print("\n" * 80)
     print("Shop: ")
     for i, j in enumerate(shop):
         if i == selected:
-            print(f'> {j}: {shop[j]["cost"]}')
+            print(f'> {j}: {shop[j]["cost"]} bits, {shop[j]["bpt"]} bpt')
         else:
-            print(f'{j}: {shop[j]["cost"]}')
+            print(f'{j}: {shop[j]["cost"]} bits, {shop[j]["bpt"]} bpt')
 
     print()
     print(f"bits: {bits}")
