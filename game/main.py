@@ -19,6 +19,7 @@ def buy(item):
         if bits >= shop[item]["cost"]:
             bits -= shop[item]["cost"]
             items.append(shop[item])
+            bps += shop[item]["bpt"]
 
 def select(x):
     global selected
@@ -35,6 +36,11 @@ while True:
         select(1)
     if inp == "down":
         select(-1)
+
+    if inp == "buy":
+        for i, j in enumerate(shop):
+            if i == selected:
+                buy(shop[j])
 
     print("\n" * 80)
     print("Shop: ")
