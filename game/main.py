@@ -20,18 +20,17 @@ def getAvailable():
         if item["cost"] <= bits
     ]
 
-def computeBps():
-    global bps
-    bps = 0
-    for item in items:
-        bps += item["bps"]
-
 def buy(item):
     global bits
     if item in available:
         bits -= shop[item]["cost"]
         items.append(shop[item])
         computeBps()
+
+def click():
+    global bits
+    if input() == "":
+        bits += 1
 
 def update():
     global bits, available
@@ -41,17 +40,9 @@ def update():
 def render():
     global available, bits
     print("\n" * 80)
-    print(f"Shop: {available}")
     print(f"Bits: {bits}")
 
-def click():
-    global bits
-    bits += 1
-
-def select(x):
-    global selected
-    selected += x
-
 while True:
+    click()
     update()
     render()
