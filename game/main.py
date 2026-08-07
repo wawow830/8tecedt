@@ -7,6 +7,10 @@ shop = {
     "biter": {
         "cost": 8,
         "bpt": 1
+    },
+    "basher": {
+        "cost": 64,
+        "bpt": 16
     }
 }
 
@@ -16,16 +20,21 @@ def buy(item):
             bits -= shop[item]["cost"]
             items.append(shop[item])
 
+def select(x):
+    global selected
+    selected += x
+    selected = selected % len(shop)
+
 inp = ""
 while True:
     inp = input()
     if inp == "":
         bits += 1
 
-    if inp == "up"
-        selected += 1
-    if inp == "down"
-        selected -= 1
+    if inp == "up":
+        select(1)
+    if inp == "down":
+        select(-1)
 
     print("\n" * 80)
     print("Shop: ")
