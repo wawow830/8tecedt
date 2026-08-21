@@ -1,5 +1,5 @@
 price = int(input("Price of computer: "))
-depost = int(input("Amount of pocket depost: "))
+deposit = int(input("Amount of pocket deposit: "))
 
 months = 0
 total = deposit
@@ -8,9 +8,7 @@ while total < price:
     total *= 1.05
     months += 1
 
-print(f"months: {months}")
-print(f"total: {total}")
-print(f"depost: {depost}")
-print(f"price: {price}")
-
-print(f"It will take {months} months to buy the computer.")
+if months > 0:
+    print(f"It will take {months} months to buy the computer.")
+else:
+    print("You have enough money to buy the computer now!")
